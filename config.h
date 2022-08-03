@@ -71,7 +71,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_m,	   spawn,	   SHCMD("spotify") },							// Music player	
 	{ MODKEY,			XK_w,	   spawn,	   SHCMD("firefox") },							// Browser
 	{ MODKEY,                       XK_p,	   spawn,          TERMCMD("pulsemixer") },						// Audio mixer
-																
+	{ MODKEY,			XK_f,	   spawn,	   SHCMD("flameshot gui") },						// Screenshot															
 	/* Window manipulation keys */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
