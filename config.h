@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 #define TERM "st"
-#define BROWSER "firefox"
+#define BROWSER "qutebrowser"
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
