@@ -68,12 +68,12 @@ static Key keys[] = {
 	/* modifier                     key                     function        argument                                                                                description */
 
 	/* Spawning applications/shell commands */
-	{ MODKEY,			XK_Return,		spawn,          SHCMD(TERM) },                                                                          // Terminal
-	{ MODKEY,			XK_d,		     	spawn,          SHCMD("rofi -show-icons -show drun -drun-display-format {name}") },                     // Program launcher
-	{ MODKEY,			XK_m,		     	spawn,          SHCMD("spotify") },                                                                     // Music player	
-	{ MODKEY,			XK_w,		     	spawn,          SHCMD(BROWSER) },                                                                       // Browser
-	{ MODKEY,			XK_p,		     	spawn,          TERMCMD("pulsemixer") },                                                                // Audio mixer
-	{ MODKEY,			XK_f,		     	spawn,          SHCMD("flameshot gui") },                                                               // Screenshot	
+	{ MODKEY,                       XK_Return,              spawn,          SHCMD(TERM) },                                                                          // Terminal
+	{ MODKEY,                       XK_d,                   spawn,          SHCMD("rofi -show-icons -show drun -drun-display-format {name}") },                     // Program launcher
+	{ MODKEY,                       XK_m,                   spawn,          SHCMD("spotify") },                                                                     // Music player	
+	{ MODKEY,                       XK_w,                   spawn,          SHCMD(BROWSER) },                                                                       // Browser
+	{ MODKEY,                       XK_p,                   spawn,          TERMCMD("pulsemixer") },                                                                // Audio mixer
+	{ MODKEY,                       XK_f,                   spawn,          SHCMD("flameshot gui") },                                                               // Screenshot	
 
 	/* Window manipulation keys */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
