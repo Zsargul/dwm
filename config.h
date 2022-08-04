@@ -65,15 +65,15 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 // static const char *termcmd[]  = { TERM, NULL };
 
 static Key keys[] = {
-	/* modifier                     key        function        argument                                                                                description */
+	/* modifier                     key        function        argument                                                              description */
 
 	/* Spawning applications/shell commands */
-	{ MODKEY,                       XK_Return, spawn,          SHCMD(TERM) },                                                                          // Terminal
-	{ MODKEY,                       XK_d,      spawn,          SHCMD("rofi -show-icons -show drun -drun-display-format {name}") },                     // Program launcher
-	{ MODKEY,                       XK_m,      spawn,          SHCMD("spotify") },                                                                     // Music player	
-	{ MODKEY,                       XK_w,      spawn,          SHCMD(BROWSER) },                                                                       // Browser
-	{ MODKEY,                       XK_p,      spawn,          TERMCMD("pulsemixer") },                                                                // Audio mixer
-	{ MODKEY,                       XK_f,      spawn,          SHCMD("flameshot gui") },                                                               // Screenshot	
+	{ MODKEY,                       XK_Return, spawn,          SHCMD(TERM) },                                                        // Terminal
+	{ MODKEY,                       XK_d,      spawn,          SHCMD("rofi -show-icons -show drun -drun-display-format {name}") },   // Program launcher
+	{ MODKEY,                       XK_m,      spawn,          SHCMD("spotify") },                                                   // Music player	
+	{ MODKEY,                       XK_w,      spawn,          SHCMD(BROWSER) },                                                     // Browser
+	{ MODKEY,                       XK_p,      spawn,          TERMCMD("pulsemixer") },                                              // Audio mixer
+	{ MODKEY,                       XK_f,      spawn,          SHCMD("flameshot gui") },                                             // Screenshot	
 
 	/* Window manipulation keys */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -107,8 +107,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 
 	/* Unused commands. Defined with 'NULL' as key and cast to long unsigned int to avoid build warnings. */
-	{ MODKEY|ShiftMask,             (long unsigned int)NULL,      quit,           {0} }, 					// Kill DWM
-	{ MODKEY,                       (long unsigned int)NULL,      togglebar,      {0} }, 					// Toggle bar 
+	{ MODKEY|ShiftMask,             (long unsigned int)NULL,      quit,           {0} },                                             // Kill DWM
+	{ MODKEY,                       (long unsigned int)NULL,      togglebar,      {0} },                                             // Toggle bar 
 	{ MODKEY,                       (long unsigned int)NULL,      setlayout,      {.v = &layouts[2]} },
 };
 
