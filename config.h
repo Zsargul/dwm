@@ -63,15 +63,16 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 // static const char *termcmd[]  = { TERM, NULL };
 
 static Key keys[] = {
-	/* modifier                     key        function        argument 								description */
+	/* modifier		key			function	argument								description */
 
 	/* Spawning applications/shell commands */
-	{ MODKEY,                       XK_Return, spawn,          SHCMD(TERM) },							// Terminal
-	{ MODKEY,                       XK_d,      spawn,          SHCMD("rofi -show-icons -show drun -drun-display-format {name}") },	// Program launcher
-	{ MODKEY,			XK_m,	   spawn,	   SHCMD("spotify") },							// Music player	
-	{ MODKEY,			XK_w,	   spawn,	   SHCMD("firefox") },							// Browser
-	{ MODKEY,                       XK_p,	   spawn,          TERMCMD("pulsemixer") },						// Audio mixer
-	{ MODKEY,			XK_f,	   spawn,	   SHCMD("flameshot gui") },						// Screenshot															
+	{ MODKEY,		XK_Return,		spawn,		SHCMD(TERM) },								// Terminal
+	{ MODKEY,		XK_d,		     	spawn,		SHCMD("rofi -show-icons -show drun -drun-display-format {name}") },	// Program launcher
+	{ MODKEY,		XK_m,		     	spawn,		SHCMD("spotify") },							// Music player	
+	{ MODKEY,		XK_w,		     	spawn,		SHCMD("firefox") },							// Browser
+	{ MODKEY,		XK_p,		     	spawn,          TERMCMD("pulsemixer") },						// Audio mixer
+	{ MODKEY,		XK_f,		     	spawn,		SHCMD("flameshot gui") },						// Screenshot															
+																		//
 	/* Window manipulation keys */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
