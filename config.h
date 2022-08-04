@@ -1,5 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
+#define TERM "st"
+#define BROWSER "firefox"
+
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -53,7 +56,6 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* Helpers for spawning shell commands in the pre dwm-5.0 fashion, as well as terminal commands (used for TUI programs like ranger) */
-#define TERM "st"
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 #define TERMCMD(cmd) { .v = (const char*[]){ TERM, "-e", cmd, NULL } }
 
@@ -66,13 +68,13 @@ static Key keys[] = {
 	/* modifier		key			function	argument								description */
 
 	/* Spawning applications/shell commands */
-	{ MODKEY,		XK_Return,		spawn,		SHCMD(TERM) },								// Terminal
-	{ MODKEY,		XK_d,		     	spawn,		SHCMD("rofi -show-icons -show drun -drun-display-format {name}") },	// Program launcher
-	{ MODKEY,		XK_m,		     	spawn,		SHCMD("spotify") },							// Music player	
-	{ MODKEY,		XK_w,		     	spawn,		SHCMD("firefox") },							// Browser
-	{ MODKEY,		XK_p,		     	spawn,          TERMCMD("pulsemixer") },						// Audio mixer
-	{ MODKEY,		XK_f,		     	spawn,		SHCMD("flameshot gui") },						// Screenshot															
-																		//
+	{ MODKEY,			XK_Return,		spawn,		SHCMD(TERM) },								// Terminal
+	{ MODKEY,			XK_d,		     	spawn,		SHCMD("rofi -show-icons -show drun -drun-display-format {name}") },	// Program launcher
+	{ MODKEY,			XK_m,		     	spawn,		SHCMD("spotify") },							// Music player	
+	{ MODKEY,			XK_w,		     	spawn,		SHCMD(BROWSER) },							// Browser
+	{ MODKEY,			XK_p,		     	spawn,		TERMCMD("pulsemixer") },						// Audio mixer
+	{ MODKEY,			XK_f,		     	spawn,		SHCMD("flameshot gui") },						// Screenshot	
+
 	/* Window manipulation keys */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
