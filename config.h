@@ -8,8 +8,9 @@ static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Misc Termsyn:style=Bold" };
-static const char dmenufont[]       = "Misc Termsyn:style=Bold";
+static const char *fonts[]          = { "Misc Tamsyn:style=Bold:size=16:autohint=true" };
+// ^^^^ CHANGE THIS TO GOHUFONT PLZ
+static const char dmenufont[]       = "Misc Tamsyn:style=Bold:size=16:autohint=true";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -74,6 +75,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_w,      spawn,          SHCMD(BROWSER) },                                                     // Browser
 	{ MODKEY,                       XK_p,      spawn,          TERMCMD("pulsemixer") },                                              // Audio mixer
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("flameshot gui") },                                             // Screenshot	
+	{ MODKEY,                       XK_t,      spawn,          SHCMD("telegram-desktop") },                                          // Telegram
 
 	/* Window manipulation keys */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -95,6 +97,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 
+	/* Exit DWM */
+	{ MODKEY|ShiftMask,             XK_F24,    quit,           {0} },                                             // Kill DWM
+																	 
 	/* Tags */
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
@@ -107,7 +112,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 
 	/* Unused commands. Defined with 'NULL' as key and cast to long unsigned int to avoid build warnings. */
-	{ MODKEY|ShiftMask,             (long unsigned int)NULL,      quit,           {0} },                                             // Kill DWM
 	{ MODKEY,                       (long unsigned int)NULL,      togglebar,      {0} },                                             // Toggle bar 
 	{ MODKEY,                       (long unsigned int)NULL,      setlayout,      {.v = &layouts[2]} },
 };
