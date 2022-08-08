@@ -8,9 +8,8 @@ static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Misc Tamsyn:style=Bold:size=16:autohint=true" };
-// ^^^^ CHANGE THIS TO GOHUFONT PLZ
-static const char dmenufont[]       = "Misc Tamsyn:style=Bold:size=16:autohint=true";
+static const char *fonts[]          = { "Terminus:style=Bold:size=16:autohint=true" };
+static const char dmenufont[]       = "Terminus:style=Bold:size=16:autohint=true";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -98,7 +97,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 
 	/* Exit DWM */
-	{ MODKEY|ShiftMask,             XK_F24,    quit,           {0} },                                             // Kill DWM
+	{ MODKEY|ShiftMask,             XK_F24,    quit,           {0} },                                                                // Kill DWM with exit code 0
 																	 
 	/* Tags */
 	TAGKEYS(                        XK_1,                      0)
