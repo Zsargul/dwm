@@ -1,0 +1,9 @@
+# Executables
+dwm
+
+# Object files
+*.o
+
+# Patch stuff
+*.orig
+*.rej
