@@ -3,14 +3,16 @@
 #define TERM "st"
 #define BROWSER "qutebrowser"
 
-/* appearance */
-static const unsigned int borderpx  = 5;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+/* gaps */
 static const unsigned int gappih    = 20;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    = 30;       /* vert outer gap between windows and screen edge */
 static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
+
+/* appearance */
+static const unsigned int borderpx  = 5;        /* border pixel of windows */
+static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Terminus:style=Bold:size=16:autohint=true" };
@@ -79,6 +81,8 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 #define TERMCMD(cmd) { .v = (const char*[]){ TERM, "-e", cmd, NULL } }
 
+#define STATUSBAR "dwmblocks"
+
 /* Commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
@@ -118,7 +122,7 @@ static Key keys[] = {
 
 	/* Exit DWM */
 	{ MODKEY|ShiftMask,             XK_F24,    quit,           {1} },                                                                // Kill DWM with exit code 1
-
+																	 //
 	/* Gap related keybinds */
 	/*
 	{ MODKEY|Mod4Mask,              XK_u,      incrgaps,       {.i = +1 } },
@@ -138,7 +142,7 @@ static Key keys[] = {
 	{ MODKEY|Mod4Mask,              XK_0,      togglegaps,     {0} },
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },
 	*/
-	
+																	 
 	/* Tags */
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
@@ -163,7 +167,9 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          SHCMD(TERM) },
+	{ ClkStatusText,        0,              Button1,        sigstatusbar,   {.i = 1} },
+	{ ClkStatusText,        0,              Button2,        sigstatusbar,   {.i = 2} },
+	{ ClkStatusText,        0,              Button3,        sigstatusbar,   {.i = 3} },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
