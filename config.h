@@ -104,6 +104,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          TERMCMD("pulsemixer") },                                              // Audio mixer
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("flameshot gui") },                                             // Screenshot	
 	{ MODKEY,                       XK_t,      spawn,          SHCMD("telegram-desktop") },                                          // Telegram
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("rofimoji -r '' -a clipboard") },                               // Emoji picker
 
 	/* Window manipulation keys */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
