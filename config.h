@@ -61,15 +61,15 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "[M]",      monocle },
-	{ "[@]",      spiral },
+//	{ "[@]",      spiral },
 	{ "[\\]",     dwindle },
 	{ "H[]",      deck },
-	{ "TTT",      bstack },
-	{ "===",      bstackhoriz },
+//	{ "TTT",      bstack },
+//	{ "===",      bstackhoriz },
 	{ "HHH",      grid },
-	{ "###",      nrowgrid },
-	{ "---",      horizgrid },
-	{ ":::",      gaplessgrid },
+//	{ "###",      nrowgrid },
+//	{ "---",      horizgrid },
+//	{ ":::",      gaplessgrid },
 	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
@@ -95,19 +95,19 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 // static const char *termcmd[]  = { TERM, NULL };
 
 static Key keys[] = {
-	/* modifier                     key                        function        argument                                                              description */
+	/* modifier                     key                        function        argument */
 
 	/* Spawning applications/shell commands */
 	{ MODKEY,                       XK_Return,                 spawn,          SHCMD(TERM) },                                                        // Terminal
-	{ MODKEY,                       XK_d,                      spawn,          SHCMD("rofi -show-icons -show drun -drun-display-format {name}") },   // Program launcher
+	{ MODKEY,                       XK_Tab,                    spawn,          SHCMD("rofi -show-icons -show drun -drun-display-format {name}") },   // Program launcher
 	{ MODKEY,                       XK_s,                      spawn,          SHCMD("spotify") },                                                   // Music player	
 	{ MODKEY,                       XK_w,                      spawn,          SHCMD(BROWSER) },                                                     // Browser
 	{ MODKEY,                       XK_f,                      spawn,          SHCMD("flameshot gui") },                                             // Screenshot	
 	{ MODKEY,                       XK_t,                      spawn,          SHCMD("telegram-desktop") },                                          // Telegram
-	{ MODKEY|ShiftMask,             XK_d,                      spawn,          SHCMD("rofimoji -r '' -a clipboard") },                               // Emoji picker
+	{ MODKEY|ShiftMask,             XK_Tab,                    spawn,          SHCMD("rofimoji -r '' -a clipboard") },                               // Emoji picker
 
 	/* Volume Control */
-	{ MODKEY,                       XK_p,                      spawn,          SHCMD(TERM " -e pulsemixer; kill -44 $(pidof dwmblocks)") },        // Audio mixer
+	{ MODKEY,                       XK_p,                      spawn,          SHCMD(TERM " -e pulsemixer; kill -44 $(pidof dwmblocks)") },          // Audio mixer
 	{ MODKEY,                       XK_minus,                  spawn,          SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,                       XK_equal,                  spawn,          SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,                       XK_m,                      spawn,          SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
@@ -116,13 +116,13 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioMute,          spawn,          SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
 
 	/* Window manipulation keys */
-	{ MODKEY,                       XK_j,                      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,                      focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_Right,                  focusstack,     {.i = +1 } },     // Change window focus
+	{ MODKEY,                       XK_Left,                   focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,                      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,                      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_d,                       incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,                      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,                      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Tab,                    view,           {0} },
+	{ MODKEY,                       XK_x,                      view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,                      killclient,     {0} },
 	// { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	// { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
