@@ -102,7 +102,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,                    spawn,          SHCMD("rofi -show-icons -show drun -drun-display-format {name}") },   // Program launcher
 	{ MODKEY,                       XK_s,                      spawn,          SHCMD("spotify") },                                                   // Music player	
 	{ MODKEY,                       XK_w,                      spawn,          SHCMD(BROWSER) },                                                     // Browser
-	{ MODKEY,                       XK_f,                      spawn,          SHCMD("flameshot gui") },                                             // Screenshot	
+	{ MODKEY,                       XK_F11,                      spawn,          SHCMD("flameshot gui") },                                             // Screenshot	
 	{ MODKEY,                       XK_t,                      spawn,          SHCMD("telegram-desktop") },                                          // Telegram
 	{ MODKEY|ShiftMask,             XK_Tab,                    spawn,          SHCMD("rofimoji -r '' -a clipboard") },                               // Emoji picker
 
@@ -116,6 +116,7 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioMute,          spawn,          SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
 
 	/* Window manipulation keys */
+	{ MODKEY|ShiftMask,             XK_f,                      togglefullscr,  {0} },            // Toggle fullscreen
 	{ MODKEY,                       XK_Right,                  focusstack,     {.i = +1 } },     // Change window focus
 	{ MODKEY,                       XK_Left,                   focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,                      incnmaster,     {.i = +1 } },
