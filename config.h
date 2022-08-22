@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <X11/XF86keysym.h>
+
 #define TERM "st"
 #define BROWSER "qutebrowser"
 
@@ -84,7 +86,6 @@ static const Layout layouts[] = {
 
 /* Helpers for spawning shell commands in the pre dwm-5.0 fashion, as well as terminal commands (used for TUI programs like ranger) */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
-#define TERMCMD(cmd) { .v = (const char*[]){ TERM, "-e", cmd, NULL } }
 
 #define STATUSBAR "dwmblocks"
 
@@ -94,40 +95,48 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 // static const char *termcmd[]  = { TERM, NULL };
 
 static Key keys[] = {
-	/* modifier                     key        function        argument                                                              description */
+	/* modifier                     key                        function        argument                                                              description */
 
 	/* Spawning applications/shell commands */
-	{ MODKEY,                       XK_Return, spawn,          SHCMD(TERM) },                                                        // Terminal
-	{ MODKEY,                       XK_d,      spawn,          SHCMD("rofi -show-icons -show drun -drun-display-format {name}") },   // Program launcher
-	{ MODKEY,                       XK_m,      spawn,          SHCMD("spotify") },                                                   // Music player	
-	{ MODKEY,                       XK_w,      spawn,          SHCMD(BROWSER) },                                                     // Browser
-	{ MODKEY,                       XK_p,      spawn,          TERMCMD("pulsemixer") },                                              // Audio mixer
-	{ MODKEY,                       XK_f,      spawn,          SHCMD("flameshot gui") },                                             // Screenshot	
-	{ MODKEY,                       XK_t,      spawn,          SHCMD("telegram-desktop") },                                          // Telegram
-	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("rofimoji -r '' -a clipboard") },                               // Emoji picker
+	{ MODKEY,                       XK_Return,                 spawn,          SHCMD(TERM) },                                                        // Terminal
+	{ MODKEY,                       XK_d,                      spawn,          SHCMD("rofi -show-icons -show drun -drun-display-format {name}") },   // Program launcher
+	{ MODKEY,                       XK_s,                      spawn,          SHCMD("spotify") },                                                   // Music player	
+	{ MODKEY,                       XK_w,                      spawn,          SHCMD(BROWSER) },                                                     // Browser
+	{ MODKEY,                       XK_f,                      spawn,          SHCMD("flameshot gui") },                                             // Screenshot	
+	{ MODKEY,                       XK_t,                      spawn,          SHCMD("telegram-desktop") },                                          // Telegram
+	{ MODKEY|ShiftMask,             XK_d,                      spawn,          SHCMD("rofimoji -r '' -a clipboard") },                               // Emoji picker
+
+	/* Volume Control */
+	{ MODKEY,                       XK_p,                      spawn,          SHCMD(TERM " -e pulsemixer; kill -44 $(pidof dwmblocks)") },        // Audio mixer
+	{ MODKEY,                       XK_minus,                  spawn,          SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
+	{ MODKEY,                       XK_equal,                  spawn,          SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
+	{ MODKEY,                       XK_m,                      spawn,          SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
+	{ 0,                            XF86XK_AudioLowerVolume,   spawn,          SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
+	{ 0,                            XF86XK_AudioRaiseVolume,   spawn,          SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
+	{ 0,                            XF86XK_AudioMute,          spawn,          SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
 
 	/* Window manipulation keys */
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
-	//{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	//{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_j,                      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_k,                      focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_i,                      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_d,                      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_h,                      setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_l,                      setmfact,       {.f = +0.05} },
+	{ MODKEY,                       XK_Tab,                    view,           {0} },
+	{ MODKEY|ShiftMask,             XK_q,                      killclient,     {0} },
+	// { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+	// { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_space,                  setlayout,      {0} },
+	{ MODKEY|ShiftMask,             XK_space,                  togglefloating, {0} },
+	{ MODKEY,                       XK_0,                      view,           {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_0,                      tag,            {.ui = ~0 } },
+	{ MODKEY,                       XK_comma,                  focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_period,                 focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_comma,                  tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_period,                 tagmon,         {.i = +1 } },
 
 	/* Exit DWM */
-	{ MODKEY|ShiftMask,             XK_F24,    quit,           {1} }, 																	 
+	{ MODKEY|ShiftMask,             XK_F24,                    quit,           {1} }, 																	 
 																	 
 	/* Tags */
 	TAGKEYS(                        XK_1,                      0)
