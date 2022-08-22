@@ -119,11 +119,11 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_f,                      togglefullscr,  {0} },            // Toggle fullscreen
 	{ MODKEY,                       XK_Right,                  focusstack,     {.i = +1 } },     // Change window focus
 	{ MODKEY,                       XK_Left,                   focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,                      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,                      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_Up,                     incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_Down,                   incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,                      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,                      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Up,                     view,           {0} },
+	{ MODKEY,                       XK_Home,                   view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,                      killclient,     {0} },
 	// { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	// { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
