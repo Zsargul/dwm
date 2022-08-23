@@ -102,7 +102,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,                    spawn,          SHCMD("rofi -show-icons -show drun -drun-display-format {name}") },   // Program launcher
 	{ MODKEY,                       XK_s,                      spawn,          SHCMD("spotify") },                                                   // Music player	
 	{ MODKEY,                       XK_w,                      spawn,          SHCMD(BROWSER) },                                                     // Browser
-	{ MODKEY,                       XK_F11,                      spawn,          SHCMD("flameshot gui") },                                             // Screenshot	
+	{ MODKEY,                       XK_F11,                    spawn,          SHCMD("flameshot gui") },                                             // Screenshot	
 	{ MODKEY,                       XK_t,                      spawn,          SHCMD("telegram-desktop") },                                          // Telegram
 	{ MODKEY|ShiftMask,             XK_Tab,                    spawn,          SHCMD("rofimoji -r '' -a clipboard") },                               // Emoji picker
 
@@ -121,6 +121,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Left,                   focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_Up,                     incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_Down,                   incnmaster,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_r,                      resetnmaster,   {0} },            // Custom function that resets number of windows in master area to 1
 	{ MODKEY,                       XK_h,                      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,                      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Home,                   view,           {0} },

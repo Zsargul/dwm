@@ -199,6 +199,7 @@ static void resize(Client *c, int x, int y, int w, int h, int interact);
 static void resizeclient(Client *c, int x, int y, int w, int h);
 static void resizemouse(const Arg *arg);
 static void restack(Monitor *m);
+static void resetnmaster(const Arg *arg);
 static void run(void);
 static void scan(void);
 static int sendevent(Client *c, Atom proto);
@@ -1156,6 +1157,15 @@ void
 incnmaster(const Arg *arg)
 {
 	selmon->nmaster = MAX(selmon->nmaster + arg->i, 0);
+	arrange(selmon);
+}
+
+/* Custom function which resets number of windows in master area to 1. 
+ * Works on per-monitor basis */
+void
+resetnmaster(const Arg *arg)
+{
+	selmon->nmaster = 1;
 	arrange(selmon);
 }
 
