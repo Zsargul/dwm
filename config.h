@@ -99,12 +99,12 @@ static Key keys[] = {
 
 	/* Spawning applications/shell commands */
 	{ MODKEY,                       XK_Return,                 spawn,          SHCMD(TERM) },                                                        // Terminal
-	{ MODKEY,                       XK_Tab,                    spawn,          SHCMD("rofi -show-icons -show drun -drun-display-format {name}") },   // Program launcher
+	{ MODKEY,                       XK_d,                      spawn,          SHCMD("rofi -show-icons -show drun -drun-display-format {name}") },   // Program launcher
 	{ MODKEY,                       XK_s,                      spawn,          SHCMD("spotify") },                                                   // Music player	
 	{ MODKEY,                       XK_w,                      spawn,          SHCMD(BROWSER) },                                                     // Browser
 	{ MODKEY,                       XK_F11,                    spawn,          SHCMD("flameshot gui") },                                             // Screenshot	
 	{ MODKEY,                       XK_t,                      spawn,          SHCMD("telegram-desktop") },                                          // Telegram
-	{ MODKEY|ShiftMask,             XK_Tab,                    spawn,          SHCMD("rofimoji -r '' -a clipboard") },                               // Emoji picker
+	{ MODKEY|ShiftMask,             XK_d,                      spawn,          SHCMD("rofimoji -r '' -a clipboard") },                               // Emoji picker
 
 	/* Volume Control */
 	{ MODKEY,                       XK_p,                      spawn,          SHCMD(TERM " -e pulsemixer; kill -44 $(pidof dwmblocks)") },          // Audio mixer
