@@ -14,3 +14,6 @@ In the order in which they were applied:
 - [Cycle Layouts](https://dwm.suckless.org/patches/cyclelayouts/)
 
 The exact `.diff` files that I used can be found in the `patches/` folder.
+
+# Dependencies
+Make sure you have the `libxinerama` or `libxinerama-dev` package installed.
