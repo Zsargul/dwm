@@ -10,6 +10,7 @@ static const char *fonts[]          = {
 	"Terminus:style=Bold:size=16:autohint=true",
 	"Noto Color Emoji:pixelsize=16:antialias=true:autohint=true"
 };
+
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 1;     /* 0 means bottom bar */
@@ -142,7 +143,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period,                 tagmon,         {.i = +1 } },
 
 	/* Exit DWM */
-	{ MODKEY|ShiftMask,             XK_F24,                    quit,           {1} }, 																	 
+	{ MODKEY|ShiftMask,             XK_F12,                    quit,           {1} }, 																	 
 																	 
 	/* Tags */
 	TAGKEYS(                        XK_1,                      0)

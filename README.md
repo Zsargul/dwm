@@ -1,3 +1,3 @@
-# Zsargul's DWM
+# Zsargul's DWM (Laptop)
 
-This is my custom build of Suckless software's DWM. I use it alongside my [build of DWMblocks](https://github.com/Zsargul/dwmblocks).
+My Laptop-specific build of DWM. The differences between the main build are negligible, with most changes being keybinds.
