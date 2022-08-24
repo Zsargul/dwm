@@ -118,8 +118,10 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioMute,          spawn,          SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
 
 	/* Layouts (cycle with Mod+Square brackets) */
-	{ MODKEY,                            XK_bracketleft,       cyclelayout,    {.i = -1 } },
-	{ MODKEY,                            XK_bracketright,      cyclelayout,    {.i = +1 } },
+	{ MODKEY,                       XK_bracketleft,            cyclelayout,    {.i = -1 } },
+	{ MODKEY,                       XK_bracketright,           cyclelayout,    {.i = +1 } },
+	{ MODKEY,                       XK_f,                      setlayout,      {0} },            // Toggle Floating layout
+	{ MODKEY,                       XK_space,                  togglefloating, {0} },            // Toggle floating mode for selected window only
 
 	/* Window manipulation keys */
 	{ MODKEY|ShiftMask,             XK_f,                      togglefullscr,  {0} },            // Toggle fullscreen
@@ -128,14 +130,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Up,                     incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_Down,                   incnmaster,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_r,                      resetnmaster,   {0} },            // Custom function that resets number of windows in master area to 1
-	{ MODKEY,                       XK_h,                      setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_h,                      setmfact,       {.f = -0.05} },   // Resize tiled windows (floating resizing uses mouse instead)
 	{ MODKEY,                       XK_l,                      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Home,                   view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,                      killclient,     {0} },
-	// { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	// { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_space,                  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,                  togglefloating, {0} },
 	{ MODKEY,                       XK_0,                      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,                      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,                  focusmon,       {.i = -1 } },
