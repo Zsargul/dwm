@@ -117,6 +117,10 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioRaiseVolume,   spawn,          SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
 	{ 0,                            XF86XK_AudioMute,          spawn,          SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
 
+	/* Layouts (cycle with Mod+Square brackets) */
+	{ MODKEY,                            XK_bracketleft,       cyclelayout,    {.i = -1 } },
+	{ MODKEY,                            XK_bracketright,      cyclelayout,    {.i = +1 } },
+
 	/* Window manipulation keys */
 	{ MODKEY|ShiftMask,             XK_f,                      togglefullscr,  {0} },            // Toggle fullscreen
 	{ MODKEY,                       XK_Right,                  focusstack,     {.i = +1 } },     // Change window focus
@@ -155,7 +159,6 @@ static Key keys[] = {
 
 	/* Unused commands. Defined with 'NULL' as key and cast to long unsigned int to avoid build warnings. */
 	{ MODKEY,                       (long unsigned int)NULL,      togglebar,      {0} },
-	{ MODKEY,                       (long unsigned int)NULL,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       (long unsigned int)NULL,      zoom,           {0} },
 	
 	/* Gap related keybinds */
