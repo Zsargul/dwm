@@ -125,6 +125,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_space,                  togglefloating, {0} },            // Toggle floating mode for selected window only
 
 	/* Window manipulation keys */
+	{ MODKEY,                       XK_F2,                     zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_f,                      togglefullscr,  {0} },            // Toggle fullscreen
 	{ MODKEY,                       XK_Right,                  focusstack,     {.i = +1 } },     // Change window focus
 	{ MODKEY,                       XK_Left,                   focusstack,     {.i = -1 } },
@@ -158,7 +159,6 @@ static Key keys[] = {
 
 	/* Unused commands. Defined with 'NULL' as key and cast to long unsigned int to avoid build warnings. */
 	{ MODKEY,                       (long unsigned int)NULL,      togglebar,      {0} },
-	{ MODKEY,                       (long unsigned int)NULL,      zoom,           {0} },
 	
 	/* Gap related keybinds */
 	{ MODKEY|Mod4Mask,              (long unsigned int)NULL,      incrgaps,       {.i = +1 } },
