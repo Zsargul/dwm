@@ -47,6 +47,7 @@ static const Rule rules[] = {
 	{ "Gimp",                 NULL,       NULL,             0,            1,           -1 },
 	{ "Firefox",              NULL,       NULL,             1 << 8,       0,           -1 },
 	{ "TelegramDesktop",      NULL,       "Telegram",       0,            1,           -1 },
+	{ "st-256color",          NULL,       "st",             0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -109,6 +110,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,                      spawn,          SHCMD("telegram-desktop") },                                          // Telegram
 	{ MODKEY|ShiftMask,             XK_d,                      spawn,          SHCMD("rofimoji -r '' -a clipboard") },                               // Emoji picker
 	{ MODKEY,                       XK_n,                      spawn,          SHCMD(TERM " -e nnn") },                                              // File manager
+	{ MODKEY,                       XK_m,                      spawn,          SHCMD("element-desktop") },                                           // Matrix
 
 	/* Volume Control */
 	{ MODKEY,                       XK_p,                      spawn,          SHCMD(TERM " -e pulsemixer; kill -44 $(pidof dwmblocks)") },          // Audio mixer
