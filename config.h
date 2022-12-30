@@ -43,11 +43,12 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class                  instance    title             tags mask     isfloating   monitor */
-	{ "Gimp",                 NULL,       NULL,             0,            1,           -1 },
-	{ "Firefox",              NULL,       NULL,             1 << 8,       0,           -1 },
-	{ "TelegramDesktop",      NULL,       "Telegram",       0,            1,           -1 },
-	{ "st-256color",          NULL,       "st",             0,            1,           -1 },
+	/* class                              instance    title             tags mask     isfloating   monitor */
+	{ "Gimp",                             NULL,       NULL,             0,            1,           -1 },
+	{ "Firefox",                          NULL,       NULL,             1 << 8,       0,           -1 },
+	{ "TelegramDesktop",                  NULL,       "Telegram",       0,            1,           -1 },
+	{ "net-runelite-launcher-Launcher",   NULL,       NULL,             0,            1,           -1 },
+	{ "st-256color",                      NULL,       "st",             0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -107,7 +108,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_s,                      spawn,          SHCMD("spotify") },                                                   // Music player	
 	{ MODKEY,                       XK_w,                      spawn,          SHCMD(BROWSER) },                                                     // Browser
 	{ MODKEY,                       XK_F11,                    spawn,          SHCMD("flameshot gui") },                                             // Screenshot	
-	{ MODKEY,                       XK_t,                      spawn,          SHCMD("telegram-desktop") },                                          // Telegram
 	{ MODKEY|ShiftMask,             XK_d,                      spawn,          SHCMD("rofimoji -r '' -a clipboard") },                               // Emoji picker
 	{ MODKEY,                       XK_n,                      spawn,          SHCMD(TERM " -e nnn") },                                              // File manager
 	{ MODKEY,                       XK_m,                      spawn,          SHCMD("element-desktop") },                                           // Matrix
@@ -116,7 +116,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,                      spawn,          SHCMD(TERM " -e pulsemixer; kill -44 $(pidof dwmblocks)") },          // Audio mixer
 	{ MODKEY,                       XK_minus,                  spawn,          SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,                       XK_equal,                  spawn,          SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY,                       XK_m,                      spawn,          SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
+	{ MODKEY,                       XK_BackSpace,              spawn,          SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
 	{ 0,                            XF86XK_AudioLowerVolume,   spawn,          SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
 	{ 0,                            XF86XK_AudioRaiseVolume,   spawn,          SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
 	{ 0,                            XF86XK_AudioMute,          spawn,          SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
