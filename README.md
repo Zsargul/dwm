@@ -13,6 +13,7 @@ In the order in which they were applied:
 - [Actual Fullscreen](https://dwm.suckless.org/patches/actualfullscreen/)
 - [Cycle Layouts](https://dwm.suckless.org/patches/cyclelayouts/)
 - [Center](https://dwm.suckless.org/patches/center/)
+- [Toggle Floating Center](https://dwm.suckless.org/patches/togglefloatingcenter/)
 
 The exact `.diff` files that I used can be found in the `patches/` folder.
 
