@@ -12,6 +12,7 @@ In the order in which they were applied:
 - [Hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/)
 - [Actual Fullscreen](https://dwm.suckless.org/patches/actualfullscreen/)
 - [Cycle Layouts](https://dwm.suckless.org/patches/cyclelayouts/)
+- [Center](https://dwm.suckless.org/patches/center/)
 
 The exact `.diff` files that I used can be found in the `patches/` folder.
 
