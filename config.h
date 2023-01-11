@@ -123,7 +123,7 @@ static Key keys[] = {
 	/* Layouts (cycle with Mod+Square brackets) */
 	{ MODKEY,                       XK_bracketleft,            cyclelayout,    {.i = -1 } },
 	{ MODKEY,                       XK_bracketright,           cyclelayout,    {.i = +1 } },
-	{ MODKEY,                       XK_f,                      setlayout,      {0} },            // Toggle Floating layout
+	{ MODKEY,                       XK_f,                      setlayout,      {0} },            // Toggle floating layout
 	{ MODKEY,                       XK_space,                  togglefloating, {0} },            // Toggle floating mode for selected window only
 
 	/* Window manipulation keys */
@@ -133,10 +133,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Left,                   focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_Up,                     incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_Down,                   incnmaster,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_r,                      resetnmaster,   {0} },            // Custom function that resets number of windows in master area to 1
+	{ MODKEY|ShiftMask,             XK_Home,                   resetnmaster,   {0} },            // Custom function that resets number of windows in master area to 1
 	{ MODKEY,                       XK_h,                      setmfact,       {.f = -0.05} },   // Resize tiled windows (floating resizing uses mouse instead)
 	{ MODKEY,                       XK_l,                      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Home,                   view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,                      killclient,     {0} },
 	{ MODKEY,                       XK_0,                      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,                      tag,            {.ui = ~0 } },
@@ -161,6 +160,7 @@ static Key keys[] = {
 
 	/* Unused commands. Defined with 'NULL' as key and cast to long unsigned int to avoid build warnings. */
 	{ MODKEY,                       (long unsigned int)NULL,      togglebar,      {0} },
+	{ MODKEY,                       (long unsigned int)NULL,      view,           {0} },
 	
 	/* Gap related keybinds */
 	{ MODKEY|Mod4Mask,              (long unsigned int)NULL,      incrgaps,       {.i = +1 } },
