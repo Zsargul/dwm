@@ -110,7 +110,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F11,                    spawn,          SHCMD("flameshot gui") },                                             // Screenshot	
 	{ MODKEY|ShiftMask,             XK_d,                      spawn,          SHCMD("rofimoji -r '' -a clipboard") },                               // Emoji picker
 	{ MODKEY,                       XK_n,                      spawn,          SHCMD("nicotine") },                                                  // Soulseek
-	{ MODKEY,                       XK_m,                      spawn,          SHCMD("element-desktop") },                                           // Matrix
+	{ MODKEY,                       XK_c,                      spawn,          SHCMD("carla") },                                                     // Carla
+
 
 	/* Volume Control */
 	{ MODKEY,                       XK_p,                      spawn,          SHCMD(TERM " -e pulsemixer; kill -44 $(pidof dwmblocks)") },          // Audio mixer
