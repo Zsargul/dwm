@@ -82,10 +82,10 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod1Mask // Mod key | Alt = Mod1 | Win = Mod4
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+	{ MODKEY,                       KEY,          view,                {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask,           KEY,          toggleview,          {.ui = 1 << TAG} }, \
+	{ MODKEY|ShiftMask,             KEY,          tag,                 {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask|ShiftMask, KEY,          toggletag,           {.ui = 1 << TAG} },
 
 /* Helpers for spawning shell commands in the pre dwm-5.0 fashion, as well as terminal commands (used for TUI programs like ranger) */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -108,7 +108,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F11,                    spawn,          SHCMD("flameshot gui") },                                             // Screenshot	
 	{ MODKEY|ShiftMask,             XK_d,                      spawn,          SHCMD("rofimoji -r '' -a clipboard") },                               // Emoji picker
 	{ MODKEY,                       XK_n,                      spawn,          SHCMD("nicotine") },                                                  // Soulseek
-	{ MODKEY,                       XK_c,                      spawn,          SHCMD("carla") },                                                     // Carla
 
 
 	/* Volume Control */
@@ -126,14 +125,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_f,                      setlayout,      {0} },            // Toggle floating layout
 	{ MODKEY,                       XK_space,                  togglefloating, {0} },            // Toggle floating mode for selected window only
 
+	/* Stack manipulation keys */
+	{ MODKEY,                       XK_Right,                  focusstack,     {.i = INC(+1) } },   
+	{ MODKEY,                       XK_Left,                   focusstack,     {.i = INC(-1) } }, 
+	{ MODKEY,                       XK_Up,                     pushstack,      {.i = 0 } },      // Push selected window to top of stack
+	{ MODKEY,                       XK_Down,                   pushstack,      {.i = -1 } },     // Push selected window to bottom of stack
+
 	/* Window manipulation keys */
 	{ MODKEY,                       XK_F2,                     zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_f,                      togglefullscr,  {0} },            // Toggle fullscreen
-	{ MODKEY,                       XK_Right,                  focusstack,     {.i = +1 } },     // Change window focus
-	{ MODKEY,                       XK_Left,                   focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_Up,                     incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_Down,                   incnmaster,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_Home,                   resetnmaster,   {0} },            // Custom function that resets number of windows in master area to 1
 	{ MODKEY,                       XK_h,                      setmfact,       {.f = -0.05} },   // Resize tiled windows (floating resizing uses mouse instead)
 	{ MODKEY,                       XK_l,                      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_q,                      killclient,     {0} },
@@ -161,6 +161,9 @@ static Key keys[] = {
 	/* Unused commands. Defined with 'NULL' as key and cast to long unsigned int to avoid build warnings. */
 	{ MODKEY,                       (long unsigned int)NULL,      togglebar,      {0} },
 	{ MODKEY,                       (long unsigned int)NULL,      view,           {0} },
+	{ MODKEY,                       (long unsigned int)NULL,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       (long unsigned int)NULL,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             (long unsigned int)NULL,      resetnmaster,   {0} },            // Custom function that resets number of windows in master area to 1
 	
 	/* Gap related keybinds */
 	{ MODKEY|Mod4Mask,              (long unsigned int)NULL,      incrgaps,       {.i = +1 } },

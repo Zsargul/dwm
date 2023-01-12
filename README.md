@@ -14,6 +14,7 @@ In the order in which they were applied:
 - [Cycle Layouts](https://dwm.suckless.org/patches/cyclelayouts/)
 - [Center](https://dwm.suckless.org/patches/center/)
 - [Toggle Floating Center](https://dwm.suckless.org/patches/togglefloatingcenter/)
+- [Stacker](https://dwm.suckless.org/patches/stacker/)
 
 The exact `.diff` files that I used can be found in the `patches/` folder.
 
