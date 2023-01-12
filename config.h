@@ -103,7 +103,6 @@ static Key keys[] = {
 	/* Spawning applications/shell commands */
 	{ MODKEY,                       XK_Return,                 spawn,          SHCMD(TERM) },                                                        // Terminal
 	{ MODKEY,                       XK_d,                      spawn,          SHCMD("rofi -show-icons -show drun -drun-display-format {name}") },   // Program launcher
-	{ MODKEY,                       XK_s,                      spawn,          SHCMD("spotify") },                                                   // Music player	
 	{ MODKEY,                       XK_w,                      spawn,          SHCMD(BROWSER) },                                                     // Browser
 	{ MODKEY,                       XK_F11,                    spawn,          SHCMD("flameshot gui") },                                             // Screenshot	
 	{ MODKEY|ShiftMask,             XK_d,                      spawn,          SHCMD("rofimoji -r '' -a clipboard") },                               // Emoji picker
@@ -125,17 +124,18 @@ static Key keys[] = {
 	{ MODKEY,                       XK_f,                      setlayout,      {0} },            // Toggle floating layout
 	{ MODKEY,                       XK_space,                  togglefloating, {0} },            // Toggle floating mode for selected window only
 
-	/* Stack manipulation keys */
+	/* Stack Manipulation */
 	{ MODKEY,                       XK_Right,                  focusstack,     {.i = INC(+1) } },   
 	{ MODKEY,                       XK_Left,                   focusstack,     {.i = INC(-1) } }, 
 	{ MODKEY,                       XK_Up,                     pushstack,      {.i = 0 } },      // Push selected window to top of stack
 	{ MODKEY,                       XK_Down,                   pushstack,      {.i = -1 } },     // Push selected window to bottom of stack
 
-	/* Window manipulation keys */
+	/* Window Manipulation */
 	{ MODKEY,                       XK_F2,                     zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_f,                      togglefullscr,  {0} },            // Toggle fullscreen
 	{ MODKEY,                       XK_h,                      setmfact,       {.f = -0.05} },   // Resize tiled windows (floating resizing uses mouse instead)
 	{ MODKEY,                       XK_l,                      setmfact,       {.f = +0.05} },
+	{ MODKEY,                       XK_s,                      togglesticky,   {0} },
 	{ MODKEY|ShiftMask,             XK_q,                      killclient,     {0} },
 	{ MODKEY,                       XK_0,                      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,                      tag,            {.ui = ~0 } },

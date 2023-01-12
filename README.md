@@ -15,6 +15,7 @@ In the order in which they were applied:
 - [Center](https://dwm.suckless.org/patches/center/)
 - [Toggle Floating Center](https://dwm.suckless.org/patches/togglefloatingcenter/)
 - [Stacker](https://dwm.suckless.org/patches/stacker/)
+- [Sticky](https://dwm.suckless.org/patches/sticky/)
 
 The exact `.diff` files that I used can be found in the `patches/` folder.
 
