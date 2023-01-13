@@ -65,7 +65,6 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 	{ "[\\]",     dwindle },
 	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
 	{ "HHH",      grid },
 	{ NULL,       NULL },
 
@@ -77,6 +76,7 @@ static const Layout layouts[] = {
 //	{ "###",      nrowgrid },
 //	{ "---",      horizgrid },
 //	{ ":::",      gaplessgrid },
+//	{ ">M>",      centeredfloatingmaster },
 };
 
 /* key definitions */
