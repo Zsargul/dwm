@@ -84,6 +84,7 @@ static const Layout layouts[] = {
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,          view,                {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,          toggleview,          {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask,           KEY,          toggleview,          {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,          tag,                 {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,          toggletag,           {.ui = 1 << TAG} },
 
@@ -110,13 +111,16 @@ static Key keys[] = {
 
 
 	/* Volume Control */
-	{ MODKEY,                       XK_p,                      spawn,          SHCMD(TERM " -e pulsemixer; kill -44 $(pidof dwmblocks)") },          // Audio mixer
+	{ MODKEY,                       XK_p,                      spawn,          SHCMD(TERM " -e pulsemixer; kill -44 $(pidof dwmblocks)") },     
 	{ MODKEY,                       XK_minus,                  spawn,          SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,                       XK_equal,                  spawn,          SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY,                       XK_BackSpace,              spawn,          SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
+	{ MODKEY,                       XK_m,                      spawn,          SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
 	{ 0,                            XF86XK_AudioLowerVolume,   spawn,          SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
 	{ 0,                            XF86XK_AudioRaiseVolume,   spawn,          SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
 	{ 0,                            XF86XK_AudioMute,          spawn,          SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
+
+	/* Enumerate fcitx5 keyboard layouts */
+	{ MODKEY,                       XK_F10,                    spawn,          SHCMD("fcitx5-enum.sh") },
 
 	/* Layouts (cycle with Mod+Square brackets) */
 	{ MODKEY,                       XK_bracketleft,            cyclelayout,    {.i = -1 } },
@@ -124,13 +128,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_f,                      setlayout,      {0} },            // Toggle floating layout
 	{ MODKEY,                       XK_space,                  togglefloating, {0} },            // Toggle floating mode for selected window only
 
-	/* Stack Manipulation */
+	/* Stack manipulation */
 	{ MODKEY,                       XK_Right,                  focusstack,     {.i = INC(+1) } },   
 	{ MODKEY,                       XK_Left,                   focusstack,     {.i = INC(-1) } }, 
 	{ MODKEY,                       XK_Up,                     pushstack,      {.i = 0 } },      // Push selected window to top of stack
 	{ MODKEY,                       XK_Down,                   pushstack,      {.i = -1 } },     // Push selected window to bottom of stack
 
-	/* Window Manipulation */
+	/* Window manipulation */
 	{ MODKEY,                       XK_F2,                     zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_f,                      togglefullscr,  {0} },            // Toggle fullscreen
 	{ MODKEY,                       XK_h,                      setmfact,       {.f = -0.05} },   // Resize tiled windows (floating resizing uses mouse instead)
@@ -146,7 +150,7 @@ static Key keys[] = {
 
 	/* Exit DWM */
 	{ MODKEY|ShiftMask,             XK_F24,                    quit,           {1} }, 																	 
-																	 
+
 	/* Tags */
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
