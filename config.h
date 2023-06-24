@@ -108,6 +108,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F11,                    spawn,          SHCMD("flameshot gui") },                                             // Screenshot	
 	{ MODKEY|ShiftMask,             XK_d,                      spawn,          SHCMD("rofimoji -r '' -a clipboard") },                               // Emoji picker
 	{ MODKEY,                       XK_n,                      spawn,          SHCMD("nicotine") },                                                  // Soulseek
+	{ MODKEY,                       XK_c,                      spawn,          SHCMD(TERM " calcurse") },                                            // Calcurse
+	
 
 
 	/* Volume Control */
